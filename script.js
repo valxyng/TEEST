@@ -519,5 +519,60 @@ new Date().getFullYear();
 }
 
 
+/*==================================================
+EMAILJS FORM SEND
+==================================================*/
 
+
+const contactForm = document.querySelector("#contactForm");
+
+
+if(contactForm){
+
+
+contactForm.addEventListener("submit",(e)=>{
+
+
+e.preventDefault();
+
+
+emailjs.sendForm(
+
+"service_pq0rpel",
+
+"template_ly9c2mp",
+
+contactForm
+
+)
+
+.then(()=>{
+
+
+alert("🔥 Заявка отправлена! Я свяжусь с вами.");
+
+
+contactForm.reset();
+
+
+})
+
+
+.catch((error)=>{
+
+
+console.log(error);
+
+alert("Ошибка отправки. Попробуйте ещё раз.");
+
+
+});
+
+
+});
+
+
+}
+
+  
 });
